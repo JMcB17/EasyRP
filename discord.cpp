@@ -13,7 +13,7 @@
 void Shutdown(int sig) {
     printf("\nshutting down...\n");
     Discord_Shutdown();
-    printf("press enter to exit");
+    printf("press enter to exit\n");
     getchar();
     exit(sig);
 }
@@ -81,6 +81,9 @@ void updatePresence(config_t *c) {
         discordPresence.largeImageText = c->large_img.text.c_str();
 
     discordPresence.joinSecret = "poggers";
+    discordPresence.partyId = "doctors-sex";
+    discordPresence.partySize = 1;
+    discordPresence.partyMax = 3;
 
     // actaully update the presence
     Discord_UpdatePresence(&discordPresence);
