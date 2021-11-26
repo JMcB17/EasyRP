@@ -13,6 +13,7 @@
 void Shutdown(int sig) {
     printf("\nshutting down...\n");
     Discord_Shutdown();
+    printf("press enter to exit");
     getchar();
     exit(sig);
 }
@@ -93,9 +94,10 @@ void refreshDiscord() {
     Discord_RunCallbacks();
 }
 
-void handleDiscordJoinGame(char* joinSecret) {
+void handleDiscordJoinGame(const char *joinSecret) {
     // todo: cross-platform?
     system("start https://youtu.be/dQw4w9WgXcQ");
+    printf("%s", joinSecret);
 }
 
 // initialize discord rich presence
