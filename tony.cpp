@@ -3,12 +3,13 @@
 // https://www.freedesktop.org/software/gstreamer-sdk/data/docs/latest/gio/gio-GResource.html
 // https://www.freedesktop.org/software/gstreamer-sdk/data/docs/latest/gio/glib-compile-resources.html
 
-#include "tony.h"
+#include "tony.hpp"
 
 Tony::Tony()
 : m_image()
 {
     gtk_image_set_from_resource(m_image, "/org/jmcb/Tony/tony.jpg")
+    m_image.show()
 }
 
 Tony::~Tony()
