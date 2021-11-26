@@ -3,6 +3,7 @@
 #include <iostream>
 #include <limits.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string>
 
 #define DISCORD_DISABLE_IO_THREAD
@@ -78,6 +79,8 @@ void updatePresence(config_t *c) {
     if (c->large_img.text.length() >= 1)
         discordPresence.largeImageText = c->large_img.text.c_str();
 
+    discordPresence.joinSecret = "poggers";
+
     // actaully update the presence
     Discord_UpdatePresence(&discordPresence);
 }
@@ -90,6 +93,11 @@ void refreshDiscord() {
     Discord_RunCallbacks();
 }
 
+void handleDiscordJoinGame(char* joinSecret) {
+    // todo: cross-platform?
+    system("start https://youtu.be/dQw4w9WgXcQ");
+}
+
 // initialize discord rich presence
 void initDiscord(std::string client_id) {
     DiscordEventHandlers handlers;
@@ -97,6 +105,7 @@ void initDiscord(std::string client_id) {
     handlers.ready = handleDiscordReady;
     handlers.errored = handleDiscordError;
     handlers.disconnected = handleDiscordDisconnected;
+    handlers.joinGame = handleDiscordJoinGame;
     if (client_id.length() < 1 || client_id.compare("123456789012345678") == 0) {
         printf("ClientID not correct (or not set).\nUnless by god you somehow "
                "got 123456789012345678 as your clientid please change this to "
