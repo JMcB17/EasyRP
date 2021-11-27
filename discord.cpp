@@ -83,7 +83,7 @@ void updatePresence(config_t *c) {
     discordPresence.joinSecret = "poggers";
     discordPresence.partyId = "doctors-sex";
     discordPresence.partySize = 1;
-    discordPresence.partyMax = 3;
+    discordPresence.partyMax = 4;
 
     // actaully update the presence
     Discord_UpdatePresence(&discordPresence);
