@@ -15,11 +15,11 @@ else
 endif
 
 rpc_inc = include_directories('discord-rpc/include')
-gtkdep = dependency('gtk+-3.0')
+gtkmm_dep = dependency('gtkmm-3.0')
 
 exe = executable('easyrp', src,
   include_directories : rpc_inc,
-  dependencies : [discordrpc, gtkdep],
+  dependencies : [discordrpc, gtkmm_dep],
   install : false)
   
 test('basic', exe)

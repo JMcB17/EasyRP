@@ -4,6 +4,7 @@
 // https://www.freedesktop.org/software/gstreamer-sdk/data/docs/latest/gio/glib-compile-resources.html
 
 #include "tony.hpp"
+#include "tony_gresource.c"
 
 Tony::Tony()
 : m_image()
